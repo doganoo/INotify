@@ -1,6 +1,6 @@
 {
   "name": "doganoo/inotify",
-  "description": "git a",
+  "description": "Simple and Leightweight library for notification services, such as email, push, sms, etc",
   "type": "library",
   "license": "MIT",
   "authors": [
