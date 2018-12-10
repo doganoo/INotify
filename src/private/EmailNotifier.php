@@ -47,6 +47,14 @@ class EmailNotifier extends Notifier {
     public function __construct() {
         parent::__construct();
         $this->mailer = new PHPMailer(true);
+        $this->setIsHTML(true);
+    }
+
+    /**
+     * @param bool $html
+     */
+    protected function setIsHTML(bool $html): void {
+        $this->mailer->isHTML($html);
     }
 
     /**
@@ -126,13 +134,6 @@ class EmailNotifier extends Notifier {
      */
     public function setMailConfiguration(IMailConfig $mailConfig): void {
         $this->mailConfig = $mailConfig;
-    }
-
-    /**
-     * @param bool $html
-     */
-    protected function setIsHTML(bool $html): void {
-        $this->mailer->isHTML($html);
     }
 
 }
