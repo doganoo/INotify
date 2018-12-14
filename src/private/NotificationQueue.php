@@ -33,6 +33,12 @@ use doganoo\PHPAlgorithms\Datastructure\Stackqueue\Queue;
  * @package doganoo\NotifierService\SNA
  */
 class NotificationQueue extends Queue {
+    /** @var bool $sendable */
+    private $sendable = true;
+
+    public function __construct(bool $sendable) {
+        $this->sendable = $sendable;
+    }
 
     /**
      * enqueues a new INotifier instance
@@ -51,7 +57,7 @@ class NotificationQueue extends Queue {
      * processes the queues
      */
     public function process(): void {
-        while (!parent::isEmpty()) {
+        while (!parent::isEmpty() && $this->sendable) {
             /** @var INotifier $notifier */
             $notifier = parent::dequeue();
             $notifier->notify();
