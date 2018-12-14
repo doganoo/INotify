@@ -115,13 +115,17 @@ class EmailNotifier extends Notifier {
 
     /**
      * @param bool $verbose
+     * @param callable|null $callable
      */
-    public function verbose(bool $verbose): void {
+    public function verbose(bool $verbose, callable $callable = null): void {
         if ($verbose) {
             $this->mailer->SMTPDebug = 2;
-            $this->mailer->Debugoutput = function ($message) {
-                Logger::debug($message);
-            };
+            if (null === $callable) {
+                $callable = function ($message) {
+                    Logger::debug($message);
+                };
+            }
+            $this->mailer->Debugoutput = $callable;
         } else {
             $this->mailer->SMTPDebug = 0;
             $this->mailer->Debugoutput = null;
