@@ -29,14 +29,5 @@ namespace doganoo\INotify;
  * Interface IReceiver
  * @package doganoo\NotifierService\SNP
  */
-interface IReceiver {
-    /**
-     * @return string
-     */
-    public function getDisplayname(): string;
-
-    /**
-     * @return string
-     */
-    public function getEmail(): string;
+interface IReceiver extends IUser {
 }

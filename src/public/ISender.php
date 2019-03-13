@@ -29,16 +29,7 @@ namespace doganoo\INotify;
  * Interface ISender
  * @package doganoo\NotifierService\SNP
  */
-interface ISender {
-    /**
-     * @return string
-     */
-    public function getDisplayname(): string;
-
-    /**
-     * @return string
-     */
-    public function getEmail(): string;
+interface ISender extends IUser {
 
     /**
      * @return string
