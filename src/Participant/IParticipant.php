@@ -1,10 +1,15 @@
 <?php
+/**
+ * Created by PhpStorm.
+ * User: doganucar
+ * Date: 2019-03-13
+ * Time: 22:09
+ */
+
+namespace doganoo\INotify\Participant;
 
 
-namespace doganoo\INotify;
-
-
-interface IUser {
+interface IParticipant {
     /**
      * @return int
      */
@@ -19,5 +24,4 @@ interface IUser {
      * @return string
      */
     public function getEmail(): string;
-
 }

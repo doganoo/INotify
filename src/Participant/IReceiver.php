@@ -23,43 +23,11 @@
  * SOFTWARE.
  */
 
-namespace doganoo\INotify;
-
-
-use doganoo\PHPAlgorithms\Datastructure\Lists\ArrayLists\ArrayList;
+namespace doganoo\INotify\Participant;
 
 /**
- * Interface INotifier
+ * Interface IReceiver
  * @package doganoo\NotifierService\SNP
  */
-interface INotifier {
-    /**
-     * @return string
-     */
-    public function getMessage(): string;
-
-    /**
-     * @return string
-     */
-    public function getSubject(): string;
-
-    /**
-     * @return ISender
-     */
-    public function getSender(): ISender;
-
-    /**
-     * @return ArrayList
-     */
-    public function getReceiver(): ArrayList;
-
-    /**
-     * @param IReceiver $receiver
-     */
-    public function addReceiver(IReceiver $receiver): void;
-
-    /**
-     * @return bool
-     */
-    public function notify(): bool;
+interface IReceiver extends IParticipant {
 }

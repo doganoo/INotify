@@ -1,4 +1,11 @@
 <?php
+
+namespace doganoo\INotify\Queue;
+
+use doganoo\INotify\Object\NotificationList;
+use doganoo\INotify\Object\ReceiverList;
+use doganoo\INotify\Participant\IReceiver;
+
 /**
  * MIT License
  *
@@ -22,12 +29,16 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
+interface IQueue
+{
+    public function storeList(NotificationList $list): bool;
 
-namespace doganoo\INotify;
+    public function getList(): NotificationList;
 
-/**
- * Interface IReceiver
- * @package doganoo\NotifierService\SNP
- */
-interface IReceiver extends IUser {
+    public function notifyAll(): bool;
+
+    public function getConfig(): ?IConfig;
+
+    public function logNotification(ReceiverList $receiver, string $notifierName, string $configName): void;
+
 }

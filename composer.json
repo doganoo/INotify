@@ -12,7 +12,7 @@
   "minimum-stability": "stable",
   "autoload": {
     "psr-4": {
-      "doganoo\\INotify\\": "src/public/",
+      "doganoo\\INotify\\": "src/",
       "doganoo\\PINotify\\": "src/private/"
     }
   },

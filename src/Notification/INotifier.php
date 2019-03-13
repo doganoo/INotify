@@ -23,34 +23,49 @@
  * SOFTWARE.
  */
 
-namespace Notifier;
+namespace doganoo\INotify\Notification;
 
-use doganoo\INotify\ISender;
+use doganoo\INotify\Object\ReceiverList;
+use doganoo\INotify\Participant\IReceiver;
+use doganoo\INotify\Participant\ISender;
 
 /**
- * Class MockSender
- * @package Notifier
+ * Interface INotifier
+ * @package doganoo\NotifierService\SNP
  */
-class MockSender implements ISender {
+interface INotifier {
+    /**
+     * @return string
+     */
+    public function getMessage(): string;
 
     /**
      * @return string
      */
-    public function getDisplayname(): string {
-        return "You You";
-    }
+    public function getSubject(): string;
 
     /**
-     * @return string
+     * @return ISender
      */
-    public function getEmail(): string {
-        return "you@you.com";
-    }
+    public function getSender(): ISender;
 
     /**
-     * @return string
+     * @return ReceiverList
      */
-    public function getPassword(): string {
-        return "topsecret";
-    }
+    public function getReceiver(): ReceiverList;
+
+    /**
+     * @param IReceiver $receiver
+     */
+    public function addReceiver(IReceiver $receiver): void;
+
+    /**
+     * @return bool
+     */
+    public function notify(): bool;
+
+    /**
+     * @param ReceiverList $receiver
+     */
+    public function overrideReceiver(ReceiverList $receiver): void;
 }

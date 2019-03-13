@@ -23,26 +23,16 @@
  * SOFTWARE.
  */
 
-use Notifier\MailNotifierMock;
-use Notifier\MockMailConfig;
-use Notifier\MockReceiver;
-use Notifier\MockSender;
-use PHPUnit\Framework\TestCase;
+namespace doganoo\INotify\Participant;
 
 /**
- * Class NotifierTest
+ * Interface ISender
+ * @package doganoo\NotifierService\SNP
  */
-class NotifierTest extends TestCase {
+interface ISender extends IParticipant {
+
     /**
-     * tests notifier
+     * @return string
      */
-    public function testMailNotifier() {
-        $notifier = new MailNotifierMock();
-        $notifier->setMessage("mock message");
-        $notifier->setSender(new MockSender());
-        $notifier->setSubject("mock subject");
-        $notifier->addReceiver(new MockReceiver());
-        $notifier->setConfig(new MockMailConfig());
-        $this->assertTrue(true === $notifier->notify());
-    }
+    public function getPassword(): string;
 }

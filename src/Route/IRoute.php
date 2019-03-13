@@ -23,27 +23,7 @@
  * SOFTWARE.
  */
 
-namespace Notifier;
+interface IRoute
+{
 
-use doganoo\INotify\IReceiver;
-
-/**
- * Class MockReceiver
- * @package Notifier
- */
-class MockReceiver implements IReceiver {
-
-    /**
-     * @return string
-     */
-    public function getDisplayname(): string {
-        return "Me Me";
-    }
-
-    /**
-     * @return string
-     */
-    public function getEmail(): string {
-        return "me@me.com";
-    }
 }

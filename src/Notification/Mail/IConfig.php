@@ -22,17 +22,25 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-
-namespace doganoo\INotify;
-
+namespace doganoo\INotify\Notification\Mail;
 /**
- * Interface ISender
+ * Interface IMailConfig
  * @package doganoo\NotifierService\SNP
  */
-interface ISender extends IUser {
+interface IConfig {
+    /**
+     * @return string
+     */
+    public function getSMTPHost(): string;
 
     /**
      * @return string
      */
-    public function getPassword(): string;
+    public function getSMTPPort(): string;
+
+    /**
+     * @return string
+     */
+    public function getSMTPProtocol(): string;
+
 }
