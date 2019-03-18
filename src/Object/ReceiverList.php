@@ -37,6 +37,7 @@ class ReceiverList extends ArrayList {
         if ($item instanceof IReceiver) {
             return parent::add($item);
         }
+        return false;
     }
 
 }

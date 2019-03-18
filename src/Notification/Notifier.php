@@ -124,6 +124,7 @@ abstract class Notifier implements INotifier {
         $this->setSubject($notifier->getSubject());
         $this->setMessage($notifier->getMessage());
         $this->setSender($notifier->getSender());
+        return true;
     }
 
 

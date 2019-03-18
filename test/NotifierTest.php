@@ -23,8 +23,11 @@
  * SOFTWARE.
  */
 
-use Notifier\MailNotifierMock;
+use doganoo\INotify\Object\NotificationList;
+use Notifier\MailMock;
 use Notifier\MockMailConfig;
+use Notifier\MockQueue;
+use Notifier\MockQueueConfig;
 use Notifier\MockReceiver;
 use Notifier\MockSender;
 use PHPUnit\Framework\TestCase;
@@ -37,12 +40,33 @@ class NotifierTest extends TestCase {
      * tests notifier
      */
     public function testMailNotifier() {
-        $notifier = new MailNotifierMock();
+        $notifier = new MailMock();
         $notifier->setMessage("mock message");
         $notifier->setSender(new MockSender());
         $notifier->setSubject("mock subject");
         $notifier->addReceiver(new MockReceiver());
         $notifier->setConfig(new MockMailConfig());
         $this->assertTrue(true === $notifier->notify());
+    }
+
+    public function testQueue(){
+        $notifier = new MailMock();
+        $notifier->setMessage("mock message");
+        $notifier->setSender(new MockSender());
+        $notifier->setSubject("mock subject");
+        $notifier->addReceiver(new MockReceiver());
+        $notifier->setConfig(new MockMailConfig());
+
+        $notificationList = new NotificationList();
+        $notificationList->add($notifier);
+
+        $mockQueue = new MockQueue(
+            new MockQueueConfig()
+            , $notificationList
+        );
+        $mockQueue->notifyAll();
+
+        $this->assertTrue(true === $mockQueue->sentAllToDefault());
+
     }
 }

@@ -38,6 +38,7 @@ class NotificationList extends ArrayList {
         if ($item instanceof INotifier) {
             return parent::add($item);
         }
+        return false;
     }
 
 }

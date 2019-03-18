@@ -34,7 +34,7 @@ use doganoo\INotify\Participant\ISender;
  * Class MailNotifierMock
  * @package Notifier
  */
-class MailNotifierMock extends Notifier {
+class MailMock extends Notifier {
     /** @var IConfig $config */
     private $config = null;
 

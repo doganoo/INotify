@@ -81,7 +81,7 @@ abstract class AbstractQueue implements IQueue {
                 , SimpleConfig::class
             );
         }
-
+        return true;
     }
 
     /**
