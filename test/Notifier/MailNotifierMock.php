@@ -23,7 +23,37 @@
  * SOFTWARE.
  */
 
-interface IRoute
-{
+namespace Notifier;
 
+
+use doganoo\INotify\Notification\Mail\IConfig;
+use doganoo\INotify\Notification\Notifier;
+use doganoo\INotify\Participant\ISender;
+
+/**
+ * Class MailNotifierMock
+ * @package Notifier
+ */
+class MailNotifierMock extends Notifier {
+    /** @var IConfig $config */
+    private $config = null;
+
+    /**
+     * @return bool
+     */
+    public function notify(): bool {
+        if (!parent::getSender() instanceof ISender) return false;
+        if (!parent::getReceiver()->size() > 1) return false;
+        if (!parent::getSender() instanceof ISender) return false;
+        if (!parent::getSender() instanceof ISender) return false;
+        if (!$this->config instanceof IConfig) return false;
+        return true;
+    }
+
+    /**
+     * @param IConfig $config
+     */
+    public function setConfig(IConfig $config): void {
+        $this->config = $config;
+    }
 }
