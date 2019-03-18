@@ -36,6 +36,7 @@ use PHPMailer\PHPMailer\PHPMailer;
  */
 class Mail extends Notifier {
     /** @var PHPMailer $mailer */
+
     private $mailer = null;
     /** @var IConfig $mailConfig */
     private $mailConfig = null;

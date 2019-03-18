@@ -68,4 +68,10 @@ interface INotifier {
      * @param ReceiverList $receiver
      */
     public function overrideReceiver(ReceiverList $receiver): void;
+
+    /**
+     * @param INotifier $notifier
+     * @return bool
+     */
+    public function copyFrom(INotifier $notifier): bool;
 }
