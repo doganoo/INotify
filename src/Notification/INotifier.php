@@ -34,6 +34,7 @@ use doganoo\INotify\Participant\ISender;
  * @package doganoo\NotifierService\SNP
  */
 interface INotifier {
+
     /**
      * @return string
      */
@@ -74,4 +75,5 @@ interface INotifier {
      * @return bool
      */
     public function copyFrom(INotifier $notifier): bool;
+
 }

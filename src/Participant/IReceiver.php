@@ -30,4 +30,5 @@ namespace doganoo\INotify\Participant;
  * @package doganoo\NotifierService\SNP
  */
 interface IReceiver extends IParticipant {
+
 }

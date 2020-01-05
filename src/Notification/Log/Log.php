@@ -32,4 +32,5 @@ class Log extends Notifier {
         FileLogger::debug($x);
         return true;
     }
+
 }

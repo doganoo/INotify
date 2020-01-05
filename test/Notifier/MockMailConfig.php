@@ -23,7 +23,7 @@
  * SOFTWARE.
  */
 
-namespace Notifier;
+namespace doganoo\INotify\Test\Notifier;
 
 use doganoo\INotify\Notification\Mail\IConfig;
 
@@ -53,4 +53,5 @@ class MockMailConfig implements IConfig {
     public function getSMTPProtocol(): string {
         return "ssl";
     }
+
 }

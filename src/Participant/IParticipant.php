@@ -30,6 +30,7 @@ namespace doganoo\INotify\Participant;
  * @package doganoo\INotify\Participant
  */
 interface IParticipant {
+
     /**
      * @return int
      */
@@ -44,4 +45,5 @@ interface IParticipant {
      * @return string
      */
     public function getEmail(): string;
+
 }

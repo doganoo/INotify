@@ -39,6 +39,7 @@ use doganoo\PHPUtil\Util\ClassUtil;
  * @package doganoo\INotify\Queue\Simple
  */
 abstract class AbstractQueue implements IQueue {
+
     /** @var SimpleConfig|null $config */
     private $config = null;
 
@@ -56,7 +57,7 @@ abstract class AbstractQueue implements IQueue {
     public function notifyAll(): bool {
 
         /** @var NotificationList $list */
-        $list = $this->getList();
+        $list            = $this->getList();
         $defaultReceiver = null;
 
         if (
@@ -93,8 +94,8 @@ abstract class AbstractQueue implements IQueue {
 
     /**
      * @param ReceiverList $receiverList
-     * @param string $notifierName
-     * @param string $configName
+     * @param string       $notifierName
+     * @param string       $configName
      */
     public function logNotification(ReceiverList $receiverList, string $notifierName, string $configName): void {
 

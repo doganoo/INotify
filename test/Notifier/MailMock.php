@@ -23,8 +23,7 @@
  * SOFTWARE.
  */
 
-namespace Notifier;
-
+namespace doganoo\INotify\Test\Notifier;
 
 use doganoo\INotify\Notification\Mail\IConfig;
 use doganoo\INotify\Notification\Notifier;
@@ -35,6 +34,7 @@ use doganoo\INotify\Participant\ISender;
  * @package Notifier
  */
 class MailMock extends Notifier {
+
     /** @var IConfig $config */
     private $config = null;
 
@@ -56,4 +56,5 @@ class MailMock extends Notifier {
     public function setConfig(IConfig $config): void {
         $this->config = $config;
     }
+
 }

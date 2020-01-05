@@ -35,4 +35,5 @@ interface ISender extends IParticipant {
      * @return string
      */
     public function getPassword(): string;
+
 }

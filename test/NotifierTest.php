@@ -23,19 +23,22 @@
  * SOFTWARE.
  */
 
+namespace doganoo\INotify\Test;
+
 use doganoo\INotify\Object\NotificationList;
-use Notifier\MailMock;
-use Notifier\MockMailConfig;
-use Notifier\MockQueue;
-use Notifier\MockQueueConfig;
-use Notifier\MockReceiver;
-use Notifier\MockSender;
+use doganoo\INotify\Test\Notifier\MailMock;
+use doganoo\INotify\Test\Notifier\MockMailConfig;
+use doganoo\INotify\Test\Notifier\MockQueue;
+use doganoo\INotify\Test\Notifier\MockQueueConfig;
+use doganoo\INotify\Test\Notifier\MockReceiver;
+use doganoo\INotify\Test\Notifier\MockSender;
 use PHPUnit\Framework\TestCase;
 
 /**
  * Class NotifierTest
  */
 class NotifierTest extends TestCase {
+
     /**
      * tests notifier
      */
@@ -49,7 +52,7 @@ class NotifierTest extends TestCase {
         $this->assertTrue(true === $notifier->notify());
     }
 
-    public function testQueue(){
+    public function testQueue() {
         $notifier = new MailMock();
         $notifier->setMessage("mock message");
         $notifier->setSender(new MockSender());
@@ -69,4 +72,5 @@ class NotifierTest extends TestCase {
         $this->assertTrue(true === $mockQueue->sentAllToDefault());
 
     }
+
 }

@@ -23,8 +23,7 @@
  * SOFTWARE.
  */
 
-namespace Notifier;
-
+namespace doganoo\INotify\Test\Notifier;
 
 use doganoo\INotify\Participant\IReceiver;
 
@@ -51,8 +50,8 @@ class MockReceiver implements IReceiver {
     /**
      * @return int
      */
-    public function getId(): int
-    {
+    public function getId(): int {
         return 1;
     }
+
 }

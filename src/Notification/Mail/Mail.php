@@ -35,6 +35,7 @@ use PHPMailer\PHPMailer\PHPMailer;
  * @package doganoo\INotify\Notification\Mail
  */
 class Mail extends Notifier {
+
     /** @var PHPMailer $mailer */
 
     private $mailer = null;
@@ -74,7 +75,7 @@ class Mail extends Notifier {
             );
         }
         $this->mailer->Subject = parent::getSubject();
-        $this->mailer->Body = parent::getMessage();
+        $this->mailer->Body    = parent::getMessage();
         return $this->mailer->send();
     }
 
@@ -83,17 +84,17 @@ class Mail extends Notifier {
      */
     public function enableSMTP(): void {
         $this->mailer->isSMTP();
-        $this->mailer->SMTPAuth = true;
-        $this->mailer->Host = $this->getMailConfiguration()->getSMTPHost();
-        $this->mailer->Port = $this->getMailConfiguration()->getSMTPPort();
-        $this->mailer->SMTPSecure = $this->getMailConfiguration()->getSMTPProtocol();
-        $this->mailer->Username = parent::getSender()->getEmail();
-        $this->mailer->Password = parent::getSender()->getPassword();
+        $this->mailer->SMTPAuth    = true;
+        $this->mailer->Host        = $this->getMailConfiguration()->getSMTPHost();
+        $this->mailer->Port        = $this->getMailConfiguration()->getSMTPPort();
+        $this->mailer->SMTPSecure  = $this->getMailConfiguration()->getSMTPProtocol();
+        $this->mailer->Username    = parent::getSender()->getEmail();
+        $this->mailer->Password    = parent::getSender()->getPassword();
         $this->mailer->SMTPOptions =
             [
                 'ssl' => [
-                    'verify_peer' => false,
-                    'verify_peer_name' => false,
+                    'verify_peer'       => false,
+                    'verify_peer_name'  => false,
                     'allow_self_signed' => true
                 ]
             ];
@@ -114,7 +115,7 @@ class Mail extends Notifier {
     }
 
     /**
-     * @param bool $verbose
+     * @param bool          $verbose
      * @param callable|null $callable
      */
     public function verbose(bool $verbose, callable $callable = null): void {
@@ -127,7 +128,7 @@ class Mail extends Notifier {
             }
             $this->mailer->Debugoutput = $callable;
         } else {
-            $this->mailer->SMTPDebug = 0;
+            $this->mailer->SMTPDebug   = 0;
             $this->mailer->Debugoutput = null;
         }
 

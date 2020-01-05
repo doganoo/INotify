@@ -1,8 +1,29 @@
 <?php
+/**
+ * MIT License
+ *
+ * Copyright (c) 2018 Dogan Ucar, <dogan@dogan-ucar.de>
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in all
+ * copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ * SOFTWARE.
+ */
 
-
-namespace Notifier;
-
+namespace doganoo\INotify\Test\Notifier;
 
 use doganoo\INotify\Notification\INotifier;
 use doganoo\INotify\Object\NotificationList;
@@ -52,7 +73,7 @@ class MockQueue implements IQueue {
 
         /** @var INotifier $notifier */
         foreach ($this->list as $notifier) {
-            $result = $notifier;
+            $result              = $notifier;
             $this->sentToDefault = false;
             if ($this->isTest()) {
                 $result = $this->config->getDefaultNotifier();
@@ -85,8 +106,8 @@ class MockQueue implements IQueue {
 
     /**
      * @param ReceiverList $receiver
-     * @param string $notifierName
-     * @param string $configName
+     * @param string       $notifierName
+     * @param string       $configName
      */
     public function logNotification(ReceiverList $receiver, string $notifierName, string $configName): void {
         /** @var IReceiver $r */
@@ -95,7 +116,8 @@ class MockQueue implements IQueue {
         }
     }
 
-    public function sentAllToDefault():bool {
+    public function sentAllToDefault(): bool {
         return $this->sentToDefault;
     }
+
 }

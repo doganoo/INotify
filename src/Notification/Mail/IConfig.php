@@ -29,6 +29,7 @@ namespace doganoo\INotify\Notification\Mail;
  * @package doganoo\NotifierService\SNP
  */
 interface IConfig {
+
     /**
      * @return string
      */

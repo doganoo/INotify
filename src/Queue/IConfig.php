@@ -34,6 +34,7 @@ use doganoo\INotify\Object\ReceiverList;
  * @package doganoo\INotify\Queue
  */
 interface IConfig {
+
     /** @var int ENVIRONMENT_DEV */
     public const ENVIRONMENT_DEV = 1;
 

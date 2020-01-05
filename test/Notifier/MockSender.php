@@ -23,8 +23,7 @@
  * SOFTWARE.
  */
 
-namespace Notifier;
-
+namespace doganoo\INotify\Test\Notifier;
 
 use doganoo\INotify\Participant\ISender;
 
@@ -58,8 +57,8 @@ class MockSender implements ISender {
     /**
      * @return int
      */
-    public function getId(): int
-    {
+    public function getId(): int {
         return 2;
     }
+
 }

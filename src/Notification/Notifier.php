@@ -35,6 +35,7 @@ use doganoo\INotify\Participant\ISender;
  * @package doganoo\NotifierService\SNA
  */
 abstract class Notifier implements INotifier {
+
     /** @var string $message */
     private $message = null;
     /** @var string $subject */

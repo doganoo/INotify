@@ -85,4 +85,5 @@ class SimpleConfig implements IConfig {
     public function getDefaultReceiver(): ?ReceiverList {
         return $this->receiver;
     }
+
 }

@@ -30,6 +30,7 @@ namespace doganoo\INotify\Notification\Mail;
  * @package doganoo\INotify\Notification\Mail
  */
 class PlainMail extends Mail {
+
     /**
      * PlainMailNotifier constructor.
      */

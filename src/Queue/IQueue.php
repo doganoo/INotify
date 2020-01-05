@@ -33,6 +33,7 @@ use doganoo\INotify\Object\ReceiverList;
  * @package doganoo\INotify\Queue
  */
 interface IQueue {
+
     /**
      * @param NotificationList $list
      * @return bool
@@ -56,8 +57,8 @@ interface IQueue {
 
     /**
      * @param ReceiverList $receiver
-     * @param string $notifierName
-     * @param string $configName
+     * @param string       $notifierName
+     * @param string       $configName
      */
     public function logNotification(ReceiverList $receiver, string $notifierName, string $configName): void;
 

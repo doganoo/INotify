@@ -33,6 +33,7 @@ use doganoo\PHPAlgorithms\Datastructure\Lists\ArrayLists\ArrayList;
  * @package doganoo\INotify\Object
  */
 class ReceiverList extends ArrayList {
+
     public function add($item): bool {
         if ($item instanceof IReceiver) {
             return parent::add($item);
