@@ -26,9 +26,15 @@ declare(strict_types=1);
 
 namespace doganoo\IN\Notification;
 
-use doganoo\INotify\Participant\INotificationList;
+use doganoo\INotify\Notification\INotificationList;
 use doganoo\PHPAlgorithms\Datastructure\Lists\ArrayLists\ArrayList;
 
+/**
+ * Class NotificationList
+ *
+ * @package doganoo\IN\Notification
+ * @author  Dogan Ucar <dogan@dogan-ucar.de>
+ */
 class NotificationList extends ArrayList implements INotificationList {
 
 }

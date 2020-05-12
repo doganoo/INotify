@@ -33,6 +33,12 @@ use doganoo\INotify\Participant\IReceiverList;
 use doganoo\PHPAlgorithms\Datastructure\Lists\ArrayLists\ArrayList;
 use doganoo\SimpleRBAC\Common\IPermission;
 
+/**
+ * Class Type
+ *
+ * @package doganoo\IN\Notification\Type
+ * @author  Dogan Ucar <dogan@dogan-ucar.de>
+ */
 class Type implements IType {
 
     /** @var int */

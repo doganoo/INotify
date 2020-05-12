@@ -24,13 +24,16 @@ declare(strict_types=1);
  * SOFTWARE.
  */
 
-namespace doganoo\INotify\Participant;
+namespace doganoo\IN\Participant;
+
+use doganoo\INotify\Participant\IReceiver;
 
 /**
- * Interface INotificationList
+ * Class Receiver
  *
- * @package doganoo\INotify\Participant
+ * @package doganoo\IN\Participant
+ * @author  Dogan Ucar <dogan@dogan-ucar.de>
  */
-interface INotificationList {
+class Receiver extends Participant implements IReceiver {
 
 }

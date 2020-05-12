@@ -24,13 +24,65 @@ declare(strict_types=1);
  * SOFTWARE.
  */
 
-namespace doganoo\INotify\Participant;
+namespace doganoo\IN\Participant;
+
+use doganoo\INotify\Participant\IParticipant;
 
 /**
- * Interface IReceiverList
+ * Class Participant
  *
- * @package doganoo\INotify\Participant
+ * @package doganoo\IN\Participant
+ * @author  Dogan Ucar <dogan@dogan-ucar.de>
  */
-interface IReceiverList {
+class Participant implements IParticipant {
+
+    /** @var int */
+    private $id;
+    /** @var string */
+    private $displayName;
+    /** @var string */
+    private $email;
+
+    /**
+     * @return int
+     */
+    public function getId(): int {
+        return $this->id;
+    }
+
+    /**
+     * @param int $id
+     */
+    public function setId(int $id): void {
+        $this->id = $id;
+    }
+
+    /**
+     * @return string
+     */
+    public function getDisplayName(): string {
+        return $this->displayName;
+    }
+
+    /**
+     * @param string $displayName
+     */
+    public function setDisplayName(string $displayName): void {
+        $this->displayName = $displayName;
+    }
+
+    /**
+     * @return string
+     */
+    public function getEmail(): string {
+        return $this->email;
+    }
+
+    /**
+     * @param string $email
+     */
+    public function setEmail(string $email): void {
+        $this->email = $email;
+    }
 
 }

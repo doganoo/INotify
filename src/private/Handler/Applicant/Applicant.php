@@ -28,6 +28,12 @@ namespace doganoo\IN\Handler\Applicant;
 
 use doganoo\INotify\Handler\Applicant\IApplicant;
 
+/**
+ * Class Applicant
+ *
+ * @package doganoo\IN\Handler\Applicant
+ * @author  Dogan Ucar <dogan@dogan-ucar.de>
+ */
 abstract class Applicant implements IApplicant {
 
 }

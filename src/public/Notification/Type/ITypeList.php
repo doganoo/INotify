@@ -26,6 +26,11 @@ declare(strict_types=1);
 
 namespace doganoo\INotify\Notification\Type;
 
+/**
+ * Interface ITypeList
+ *
+ * @package doganoo\INotify\Notification\Type
+ */
 interface ITypeList {
 
 }

@@ -28,6 +28,11 @@ namespace doganoo\INotify\Handler\Applicant\Mail;
 
 use doganoo\INotify\Handler\Applicant\IApplicant;
 
+/**
+ * Interface IMailApplicant
+ *
+ * @package doganoo\INotify\Handler\Applicant\Mail
+ */
 interface IMailApplicant extends IApplicant {
 
 }

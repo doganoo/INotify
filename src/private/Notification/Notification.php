@@ -35,6 +35,12 @@ use doganoo\INotify\Participant\IReceiverList;
 use doganoo\INotify\Participant\ISender;
 use doganoo\PHPAlgorithms\Datastructure\Lists\ArrayLists\ArrayList;
 
+/**
+ * Class Notification
+ *
+ * @package doganoo\IN\Notification
+ * @author  Dogan Ucar <dogan@dogan-ucar.de>
+ */
 class Notification implements INotification {
 
     /** @var int */

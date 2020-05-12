@@ -24,13 +24,18 @@ declare(strict_types=1);
  * SOFTWARE.
  */
 
-namespace doganoo\INotify\Participant;
+namespace doganoo\INotify\Service\Mapper;
+
+use doganoo\INotify\Handler\Applicant\IApplicant;
+use doganoo\INotify\Notification\Type\IType;
 
 /**
- * Interface IReceiverList
+ * Interface IMapper
  *
- * @package doganoo\INotify\Participant
+ * @package doganoo\INotify\Mapper
  */
-interface IReceiverList {
+interface IMapper {
+
+    public function query(IType $type): IApplicant;
 
 }

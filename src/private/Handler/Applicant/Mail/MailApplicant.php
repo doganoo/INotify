@@ -36,6 +36,12 @@ use doganoo\INotify\Service\Log\ILoggerService;
 use PHPMailer\PHPMailer\Exception;
 use PHPMailer\PHPMailer\PHPMailer;
 
+/**
+ * Class MailApplicant
+ *
+ * @package doganoo\IN\Handler\Applicant\Mail
+ * @author  Dogan Ucar <dogan@dogan-ucar.de>
+ */
 class MailApplicant extends Applicant implements IMailApplicant {
 
     /** @var PHPMailer $mailer */

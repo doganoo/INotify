@@ -26,6 +26,11 @@ declare(strict_types=1);
 
 namespace doganoo\INotify\Handler\Applicant;
 
+/**
+ * Interface IApplicantList
+ *
+ * @package doganoo\INotify\Handler\Applicant
+ */
 interface IApplicantList {
 
 }

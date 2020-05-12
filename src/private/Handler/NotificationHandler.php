@@ -26,18 +26,20 @@ declare(strict_types=1);
 
 namespace doganoo\IN\Handler;
 
+use doganoo\IN\Participant\NotificationList;
 use doganoo\INotify\Handler\INotificationHandler;
-use doganoo\INotify\Mapper\IMapper;
 use doganoo\INotify\Notification\INotification;
+use doganoo\INotify\Notification\INotificationList;
 use doganoo\INotify\Notification\Type\IType;
-use doganoo\INotify\Participant\INotificationList;
+use doganoo\INotify\Service\Mapper\IMapper;
 use doganoo\PHPAlgorithms\Datastructure\Lists\ArrayLists\ArrayList;
 use doganoo\SimpleRBAC\Handler\PermissionHandler;
 
 /**
- * Class Notification
+ * Class NotificationHandler
  *
- * @package doganoo\NotifierService\SNA
+ * @package doganoo\IN\Handler
+ * @author  Dogan Ucar <dogan@dogan-ucar.de>
  */
 class NotificationHandler implements INotificationHandler {
 
@@ -58,6 +60,10 @@ class NotificationHandler implements INotificationHandler {
 
     public function addNotification(INotification $notification): void {
         $this->notificationList->add($notification);
+    }
+
+    public function setNotifications(NotificationList $notificationList): void {
+        $this->notificationList = $notificationList;
     }
 
     public function notify(): bool {

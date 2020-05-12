@@ -26,8 +26,14 @@ declare(strict_types=1);
 
 namespace doganoo\INotify\Handler;
 
-use doganoo\INotify\Participant\INotificationList;
 
+use doganoo\INotify\Notification\INotificationList;
+
+/**
+ * Interface INotificationHandler
+ *
+ * @package doganoo\INotify\Handler
+ */
 interface INotificationHandler {
 
     public function getNotifications(): INotificationList;

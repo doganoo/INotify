@@ -27,9 +27,9 @@ declare(strict_types=1);
 namespace doganoo\INotify\Handler\Applicant\Mail;
 
 /**
- * Interface IMailConfig
+ * Interface IConfig
  *
- * @package doganoo\NotifierService\SNP
+ * @package doganoo\INotify\Handler\Applicant\Mail
  */
 interface IConfig {
 

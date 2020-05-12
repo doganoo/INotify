@@ -28,6 +28,11 @@ namespace doganoo\INotify\Handler\Applicant;
 
 use doganoo\INotify\Notification\INotification;
 
+/**
+ * Interface IApplicant
+ *
+ * @package doganoo\INotify\Handler\Applicant
+ */
 interface IApplicant {
 
     /**

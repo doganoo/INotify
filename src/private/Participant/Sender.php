@@ -24,13 +24,27 @@ declare(strict_types=1);
  * SOFTWARE.
  */
 
-namespace doganoo\INotify\Mapper;
+namespace doganoo\IN\Participant;
 
-use doganoo\INotify\Handler\Applicant\IApplicant;
-use doganoo\INotify\Notification\Type\IType;
+use doganoo\INotify\Participant\ISender;
 
-interface IMapper {
+/**
+ * Class Sender
+ *
+ * @package doganoo\IN\Participant
+ * @author  Dogan Ucar <dogan@dogan-ucar.de>
+ */
+class Sender extends Participant implements ISender {
 
-    public function query(IType $type): IApplicant;
+    /** @var string */
+    private $password;
+
+    public function getPassword(): string {
+        return $this->password;
+    }
+
+    public function setPassword(string $password): void {
+        $this->password = $password;
+    }
 
 }

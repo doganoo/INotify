@@ -26,6 +26,11 @@ declare(strict_types=1);
 
 namespace doganoo\INotify\Notification;
 
+/**
+ * Interface INotificationList
+ *
+ * @package doganoo\INotify\Notification
+ */
 interface INotificationList {
 
 }
