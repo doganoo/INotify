@@ -26,7 +26,6 @@ declare(strict_types=1);
 
 namespace doganoo\IN\Handler;
 
-use doganoo\IN\Participant\NotificationList;
 use doganoo\INotify\Handler\INotificationHandler;
 use doganoo\INotify\Notification\INotification;
 use doganoo\INotify\Notification\INotificationList;
@@ -62,20 +61,22 @@ class NotificationHandler implements INotificationHandler {
         $this->notificationList->add($notification);
     }
 
-    public function setNotifications(NotificationList $notificationList): void {
+    public function setNotifications(INotificationList $notificationList): void {
         $this->notificationList = $notificationList;
     }
 
     public function notify(): bool {
         $notified = false;
         /** @var INotification $notification */
-        foreach ($this->getNotifications() as $notification) {
+        foreach ($this->getNotifications() as $index => $notification) {
             if (true === $notification->isExecuted()) continue;
             /** @var IType $type */
             foreach ($notification->getTypes() as $type) {
                 if (false === $this->permissionHandler->hasPermission($type->getPermission())) continue;
                 $applicant = $this->mapper->query($type);
-                $applicant->notify($notification);
+                $notified  = $applicant->notify($notification);
+                $notification->setExecuted($notified);
+                $this->updateNotification($index, $notification);
             }
 
         }
@@ -84,6 +85,10 @@ class NotificationHandler implements INotificationHandler {
 
     public function getNotifications(): INotificationList {
         return $this->notificationList;
+    }
+
+    private function updateNotification(int $index, INotification $notification): bool {
+        return $this->notificationList->set($index, $notification);
     }
 
 }

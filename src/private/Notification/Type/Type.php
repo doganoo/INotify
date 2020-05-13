@@ -52,7 +52,7 @@ class Type implements IType {
     /** @var DateTime */
     private $createTs;
     /** @var IReceiverList|ArrayList */
-    private $userList;
+    private $receiverList;
 
     public function getId(): int {
         return $this->id;
@@ -95,15 +95,15 @@ class Type implements IType {
     }
 
     public function getReceiverList(): IReceiverList {
-        return $this->userList;
+        return $this->receiverList;
     }
 
     public function setReceiverList(IReceiverList $receiverList): void {
-        $this->userList = $receiverList;
+        $this->receiverList = $receiverList;
     }
 
     public function addReceiver(IReceiver $user): void {
-        $this->userList->add($user);
+        $this->receiverList->add($user);
     }
 
 }

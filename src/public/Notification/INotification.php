@@ -74,6 +74,11 @@ interface INotification {
     public function isExecuted(): bool;
 
     /**
+     * @param bool $executed
+     */
+    public function setExecuted(bool $executed): void;
+
+    /**
      * @return DateTime
      */
     public function getCreateTs(): DateTime;
@@ -81,6 +86,6 @@ interface INotification {
     /**
      * @return IReceiverList
      */
-    public function getReceiverList():IReceiverList;
+    public function getReceiverList(): IReceiverList;
 
 }
