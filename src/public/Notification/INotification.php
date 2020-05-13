@@ -88,4 +88,9 @@ interface INotification {
      */
     public function getReceiverList(): IReceiverList;
 
+    /**
+     * @return int|null
+     */
+    public function getDelay(): ?int;
+
 }

@@ -61,6 +61,22 @@ class Notification implements INotification {
     private $types;
     /** @var IReceiverList */
     private $receiverList;
+    /** @var int */
+    private $delay;
+
+    /**
+     * @return int|null
+     */
+    public function getDelay(): ?int {
+        return $this->delay;
+    }
+
+    /**
+     * @param int|null $delay
+     */
+    public function setDelay(?int $delay): void {
+        $this->delay = $delay;
+    }
 
     public function getId(): int {
         return $this->id;
