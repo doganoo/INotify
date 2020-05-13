@@ -37,6 +37,11 @@ use doganoo\SimpleRBAC\Common\IPermission;
  */
 interface IType {
 
+    /** @var string */
+    public const MAIL       = "mail.type.notification";
+    public const PLAIN_MAIL = "mail.plain.type.notification";
+    public const LOG        = "log.type.notification";
+
     /**
      * @return int
      */
