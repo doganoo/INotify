@@ -27,6 +27,8 @@ declare(strict_types=1);
 namespace doganoo\IN\Notification;
 
 use DateTime;
+use doganoo\IN\Notification\Type\TypeList;
+use doganoo\IN\Participant\ReceiverList;
 use doganoo\INotify\Notification\INotification;
 use doganoo\INotify\Notification\Type\IType;
 use doganoo\INotify\Notification\Type\ITypeList;
@@ -63,6 +65,27 @@ class Notification implements INotification {
     private $receiverList;
     /** @var int */
     private $delay;
+    /** @var int|null */
+    private $queueId;
+
+    public function __construct() {
+        $this->types        = new TypeList();
+        $this->receiverList = new ReceiverList();
+    }
+
+    /**
+     * @return int|null
+     */
+    public function getQueueId(): ?int {
+        return $this->queueId;
+    }
+
+    /**
+     * @param int|null $queueId
+     */
+    public function setQueueId(?int $queueId): void {
+        $this->queueId = $queueId;
+    }
 
     /**
      * @return int|null

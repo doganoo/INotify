@@ -76,6 +76,7 @@ class NotificationHandler implements INotificationHandler {
             foreach ($notification->getTypes() as $type) {
                 if (false === $this->permissionHandler->hasPermission($type->getPermission())) continue;
                 if (($notification->getCreateTs()->getTimestamp() + $notification->getDelay()) > $now) continue;
+                if (0 === $notification->getReceiverList()->length()) continue;
 
                 $applicant = $this->mapper->query($type);
                 $notified  = $applicant->notify($notification);

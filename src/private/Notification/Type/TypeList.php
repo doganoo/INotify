@@ -24,79 +24,17 @@ declare(strict_types=1);
  * SOFTWARE.
  */
 
-namespace doganoo\INotify\Notification;
+namespace doganoo\IN\Notification\Type;
 
-use DateTime;
 use doganoo\INotify\Notification\Type\ITypeList;
-use doganoo\INotify\Participant\IReceiverList;
-use doganoo\INotify\Participant\ISender;
 use doganoo\PHPAlgorithms\Datastructure\Lists\ArrayLists\ArrayList;
 
 /**
- * Interface INotification
+ * Class TypeList
  *
- * @package doganoo\INotify\Notification
+ * @package doganoo\IN\Notification\Type
+ * @author  Dogan Ucar <dogan@dogan-ucar.de>
  */
-interface INotification {
-
-    /**
-     * @return int
-     */
-    public function getId(): int;
-
-    /**
-     * @return string
-     */
-    public function getName(): string;
-
-    /**
-     * @return ISender
-     */
-    public function getSender(): ISender;
-
-    /**
-     * @return string
-     */
-    public function getContent(): string;
-
-    /**
-     * @return string
-     */
-    public function getSubject(): string;
-
-    /**
-     * @return ITypeList
-     */
-    public function getTypes(): ITypeList;
-
-    /**
-     * @return bool
-     */
-    public function isExecuted(): bool;
-
-    /**
-     * @param bool $executed
-     */
-    public function setExecuted(bool $executed): void;
-
-    /**
-     * @return DateTime
-     */
-    public function getCreateTs(): DateTime;
-
-    /**
-     * @return IReceiverList|ArrayList
-     */
-    public function getReceiverList(): IReceiverList;
-
-    /**
-     * @return int|null
-     */
-    public function getDelay(): ?int;
-
-    /**
-     * @return int|null
-     */
-    public function getQueueId(): ?int;
+class TypeList extends ArrayList implements ITypeList {
 
 }
