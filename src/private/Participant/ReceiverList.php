@@ -44,4 +44,20 @@ class ReceiverList extends ArrayList implements IReceiverList {
         return false;
     }
 
+    public function hasReceiver(IReceiver $receiver): bool {
+        /** @var IReceiver $listReceiver */
+        foreach ($this as $listReceiver) {
+            if ($listReceiver->getId() === $receiver->getId()) return true;
+        }
+        return false;
+    }
+
+    public function hasReceiverById(int $id): bool {
+        /** @var IReceiver $listReceiver */
+        foreach ($this as $listReceiver) {
+            if ($listReceiver->getId() === $id) return true;
+        }
+        return false;
+    }
+
 }

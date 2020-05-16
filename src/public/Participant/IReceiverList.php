@@ -33,4 +33,18 @@ namespace doganoo\INotify\Participant;
  */
 interface IReceiverList {
 
+    /**
+     * @param IReceiver $receiver
+     *
+     * @return bool
+     */
+    public function hasReceiver(IReceiver $receiver): bool;
+
+    /**
+     * @param int $id
+     *
+     * @return bool
+     */
+    public function hasReceiverById(int $id): bool;
+
 }
