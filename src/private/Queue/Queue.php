@@ -28,10 +28,12 @@ namespace doganoo\IN\Queue;
 
 use DateTime;
 use doganoo\INotify\Notification\INotification;
+use doganoo\INotify\Participant\IReceiver;
 use doganoo\INotify\Participant\IReceiverList;
 use doganoo\INotify\Participant\ISender;
 use doganoo\INotify\Queue\IQueue;
 use doganoo\INotify\Queue\IType;
+use doganoo\PHPAlgorithms\Datastructure\Lists\ArrayLists\ArrayList;
 
 /**
  * Class Queue
@@ -51,7 +53,7 @@ class Queue implements IQueue {
     private $type;
     /** @var bool */
     private $executed;
-    /** @var IReceiverList */
+    /** @var IReceiverList|ArrayList */
     private $receiverList;
     /** @var int */
     private $delay;
@@ -216,6 +218,10 @@ class Queue implements IQueue {
      */
     public function setSender(ISender $sender): void {
         $this->sender = $sender;
+    }
+
+    public function addReceiver(IReceiver $receiver): void {
+        $this->receiverList->add($receiver);
     }
 
 }
