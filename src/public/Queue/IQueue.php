@@ -27,7 +27,9 @@ declare(strict_types=1);
 namespace doganoo\INotify\Queue;
 
 use DateTime;
+use doganoo\INotify\Notification\INotification;
 use doganoo\INotify\Participant\IReceiverList;
+use doganoo\INotify\Participant\ISender;
 
 /**
  * Interface Queue
@@ -80,5 +82,15 @@ interface IQueue {
      * @return DateTime
      */
     public function getCreateTs(): DateTime;
+
+    /**
+     * @return INotification|null
+     */
+    public function getNotification(): ?INotification;
+
+    /**
+     * @return ISender
+     */
+    public function getSender(): ISender;
 
 }

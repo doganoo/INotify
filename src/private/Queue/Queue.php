@@ -27,7 +27,9 @@ declare(strict_types=1);
 namespace doganoo\IN\Queue;
 
 use DateTime;
+use doganoo\INotify\Notification\INotification;
 use doganoo\INotify\Participant\IReceiverList;
+use doganoo\INotify\Participant\ISender;
 use doganoo\INotify\Queue\IQueue;
 use doganoo\INotify\Queue\IType;
 
@@ -57,6 +59,10 @@ class Queue implements IQueue {
     private $createTs;
     /** @var DateTime|null */
     private $sendTs;
+    /** @var INotification|null */
+    private $notification;
+    /** @var ISender */
+    private $sender;
 
     /**
      * @return int
@@ -182,6 +188,34 @@ class Queue implements IQueue {
      */
     public function setSendTs(?DateTime $sendTs): void {
         $this->sendTs = $sendTs;
+    }
+
+    /**
+     * @return INotification|null
+     */
+    public function getNotification(): ?INotification {
+        return $this->notification;
+    }
+
+    /**
+     * @param INotification|null $notification
+     */
+    public function setNotification(?INotification $notification): void {
+        $this->notification = $notification;
+    }
+
+    /**
+     * @return ISender
+     */
+    public function getSender(): ISender {
+        return $this->sender;
+    }
+
+    /**
+     * @param ISender $sender
+     */
+    public function setSender(ISender $sender): void {
+        $this->sender = $sender;
     }
 
 }
