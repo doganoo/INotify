@@ -27,7 +27,7 @@ declare(strict_types=1);
 namespace doganoo\INotify\Service\Mapper;
 
 use doganoo\INotify\Handler\Applicant\IApplicant;
-use doganoo\INotify\Notification\Type\IType;
+use doganoo\INotify\Queue\IType;
 
 /**
  * Interface IMapper

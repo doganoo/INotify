@@ -28,9 +28,9 @@ namespace doganoo\IN\Handler;
 
 use DateTime;
 use doganoo\INotify\Handler\INotificationHandler;
-use doganoo\INotify\Notification\INotification;
-use doganoo\INotify\Notification\INotificationList;
-use doganoo\INotify\Notification\Type\IType;
+use doganoo\INotify\Queue\INotification;
+use doganoo\INotify\Queue\IQueue;
+use doganoo\INotify\Queue\IType;
 use doganoo\INotify\Service\Mapper\IMapper;
 use doganoo\PHPAlgorithms\Datastructure\Lists\ArrayLists\ArrayList;
 use doganoo\SimpleRBAC\Handler\PermissionHandler;
@@ -43,7 +43,7 @@ use doganoo\SimpleRBAC\Handler\PermissionHandler;
  */
 class NotificationHandler implements INotificationHandler {
 
-    /** @var INotificationList|ArrayList */
+    /** @var IQueue|ArrayList */
     private $notificationList;
     /** @var IMapper */
     private $mapper;
@@ -62,8 +62,8 @@ class NotificationHandler implements INotificationHandler {
         $this->notificationList->add($notification);
     }
 
-    public function setNotifications(INotificationList $notificationList): void {
-        $this->notificationList = $notificationList;
+    public function setNotifications(IQueue $queueList): void {
+        $this->notificationList = $queueList;
     }
 
     public function notify(): bool {
@@ -73,22 +73,20 @@ class NotificationHandler implements INotificationHandler {
         foreach ($this->getNotifications() as $index => $notification) {
             if (true === $notification->isExecuted()) continue;
             /** @var IType $type */
-            foreach ($notification->getTypes() as $type) {
-                if (false === $this->permissionHandler->hasPermission($type->getPermission())) continue;
-                if (($notification->getCreateTs()->getTimestamp() + $notification->getDelay()) > $now) continue;
-                if (0 === $notification->getReceiverList()->length()) continue;
+            if (false === $this->permissionHandler->hasPermission($type->getPermission())) continue;
+            if (($notification->getCreateTs()->getTimestamp() + $notification->getDelay()) > $now) continue;
+            if (0 === $notification->getReceiverList()->length()) continue;
 
-                $applicant = $this->mapper->query($type);
-                $notified  = $applicant->notify($notification);
-                $notification->setExecuted($notified);
-                $this->updateNotification($index, $notification);
-            }
+            $applicant = $this->mapper->query($type);
+            $notified  = $applicant->notify($notification);
+            $notification->setExecuted($notified);
+            $this->updateNotification($index, $notification);
 
         }
         return $notified;
     }
 
-    public function getNotifications(): INotificationList {
+    public function getNotifications(): IQueue {
         return $this->notificationList;
     }
 

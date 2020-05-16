@@ -26,71 +26,11 @@ declare(strict_types=1);
 
 namespace doganoo\INotify\Queue;
 
-use DateTime;
-use doganoo\INotify\Notification\INotification;
-use doganoo\INotify\Participant\IReceiverList;
-use doganoo\INotify\Participant\ISender;
-
 /**
- * Interface Queue
+ * Interface IQueueList
  *
  * @package doganoo\INotify\Queue
  */
 interface IQueue {
-
-    /**
-     * @return int
-     */
-    public function getId(): int;
-
-    /**
-     * @return string
-     */
-    public function getSubject(): string;
-
-    /**
-     * @return string
-     */
-    public function getContent(): string;
-
-    /**
-     * @return IType
-     */
-    public function getType(): IType;
-
-    /**
-     * @return bool
-     */
-    public function isExecuted(): bool;
-
-    /**
-     * @return IReceiverList
-     */
-    public function getReceiverList(): IReceiverList;
-
-    /**
-     * @return int
-     */
-    public function getDelay(): int;
-
-    /**
-     * @return DateTime|null
-     */
-    public function getSendTs(): ?DateTime;
-
-    /**
-     * @return DateTime
-     */
-    public function getCreateTs(): DateTime;
-
-    /**
-     * @return INotification|null
-     */
-    public function getNotification(): ?INotification;
-
-    /**
-     * @return ISender
-     */
-    public function getSender(): ISender;
 
 }

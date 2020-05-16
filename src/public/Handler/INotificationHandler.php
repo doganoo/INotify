@@ -26,8 +26,7 @@ declare(strict_types=1);
 
 namespace doganoo\INotify\Handler;
 
-
-use doganoo\INotify\Notification\INotificationList;
+use doganoo\INotify\Queue\IQueue;
 
 /**
  * Interface INotificationHandler
@@ -36,7 +35,7 @@ use doganoo\INotify\Notification\INotificationList;
  */
 interface INotificationHandler {
 
-    public function getNotifications(): INotificationList;
+    public function getNotifications(): IQueue;
 
     public function notify(): bool;
 

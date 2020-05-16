@@ -24,17 +24,72 @@ declare(strict_types=1);
  * SOFTWARE.
  */
 
-namespace doganoo\IN\Queue;
+namespace doganoo\INotify\Queue;
 
-use doganoo\INotify\Queue\IQueueList;
-use doganoo\PHPAlgorithms\Datastructure\Lists\ArrayLists\ArrayList;
+use DateTime;
+use doganoo\INotify\Participant\IReceiverList;
+use doganoo\INotify\Participant\ISender;
 
 /**
- * Class QueueList
+ * Interface Queue
  *
- * @package doganoo\IN\Queue
- * @author  Dogan Ucar <dogan@dogan-ucar.de>
+ * @package doganoo\INotify\Queue
  */
-class QueueList extends ArrayList implements IQueueList {
+interface INotification {
+
+    /**
+     * @return int
+     */
+    public function getId(): int;
+
+    /**
+     * @return string
+     */
+    public function getSubject(): string;
+
+    /**
+     * @return string
+     */
+    public function getContent(): string;
+
+    /**
+     * @return IType
+     */
+    public function getType(): IType;
+
+    /**
+     * @return bool
+     */
+    public function isExecuted(): bool;
+
+    /**
+     * @return IReceiverList
+     */
+    public function getReceiverList(): IReceiverList;
+
+    /**
+     * @return int
+     */
+    public function getDelay(): int;
+
+    /**
+     * @return DateTime|null
+     */
+    public function getSendTs(): ?DateTime;
+
+    /**
+     * @return DateTime
+     */
+    public function getCreateTs(): DateTime;
+
+    /**
+     * @return int|null
+     */
+    public function getNotificationId(): ?int;
+
+    /**
+     * @return ISender
+     */
+    public function getSender(): ISender;
 
 }

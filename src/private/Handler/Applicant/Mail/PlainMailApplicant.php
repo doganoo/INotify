@@ -27,8 +27,9 @@ declare(strict_types=1);
 namespace doganoo\IN\Handler\Applicant\Mail;
 
 use doganoo\INotify\Handler\Applicant\Mail\IConfig;
-use doganoo\INotify\Notification\INotification;
+use doganoo\INotify\Queue\INotification;
 use doganoo\INotify\Service\Log\ILoggerService;
+use PHPMailer\PHPMailer\Exception;
 use function strip_tags;
 
 /**
@@ -56,7 +57,12 @@ class PlainMailApplicant extends MailApplicant {
         parent::setIsHTML(false);
     }
 
-
+    /**
+     * @param INotification $notification
+     *
+     * @return bool
+     * @throws Exception
+     */
     public function notify(INotification $notification): bool {
         $notification->setContent(
             strip_tags($notification->getContent())

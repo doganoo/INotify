@@ -27,8 +27,8 @@ declare(strict_types=1);
 namespace doganoo\IN\Handler\Applicant\Log;
 
 use doganoo\IN\Handler\Applicant\Applicant;
-use doganoo\INotify\Notification\INotification;
 use doganoo\INotify\Participant\IReceiver;
+use doganoo\INotify\Queue\INotification;
 use doganoo\INotify\Service\Log\ILoggerService;
 
 /**

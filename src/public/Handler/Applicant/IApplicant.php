@@ -26,7 +26,7 @@ declare(strict_types=1);
 
 namespace doganoo\INotify\Handler\Applicant;
 
-use doganoo\INotify\Notification\INotification;
+use doganoo\INotify\Queue\INotification;
 
 /**
  * Interface IApplicant
