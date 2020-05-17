@@ -72,12 +72,12 @@ class NotificationHandler implements INotificationHandler {
         /** @var INotification $notification */
         foreach ($this->getNotifications() as $index => $notification) {
             if (true === $notification->isExecuted()) continue;
-            /** @var IType $type */
-            if (false === $this->permissionHandler->hasPermission($type->getPermission())) continue;
+            $type = $notification->getType();
+            if (false === $this->permissionHandler->hasPermission($notification->getType()->getPermission())) continue;
             if (($notification->getCreateTs()->getTimestamp() + $notification->getDelay()) > $now) continue;
             if (0 === $notification->getReceiverList()->length()) continue;
 
-            $applicant = $this->mapper->query($type);
+            $applicant = $this->mapper->query($notification->getType());
             $notified  = $applicant->notify($notification);
             $notification->setExecuted($notified);
             $this->updateNotification($index, $notification);

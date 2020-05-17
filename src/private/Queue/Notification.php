@@ -27,6 +27,7 @@ declare(strict_types=1);
 namespace doganoo\IN\Queue;
 
 use DateTime;
+use doganoo\IN\Participant\ReceiverList;
 use doganoo\INotify\Participant\IReceiver;
 use doganoo\INotify\Participant\IReceiverList;
 use doganoo\INotify\Participant\ISender;
@@ -64,6 +65,13 @@ class Notification implements INotification {
     private $notificationId;
     /** @var ISender */
     private $sender;
+
+    /**
+     * Notification constructor.
+     */
+    public function __construct() {
+        $this->receiverList = new ReceiverList();
+    }
 
     /**
      * @return int
