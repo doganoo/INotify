@@ -27,6 +27,7 @@ declare(strict_types=1);
 namespace doganoo\IN\Notification\Type;
 
 use DateTime;
+use doganoo\IN\Participant\ReceiverList;
 use doganoo\INotify\Notification\Type\IType;
 use doganoo\INotify\Participant\IReceiver;
 use doganoo\INotify\Participant\IReceiverList;
@@ -53,6 +54,10 @@ class Type implements IType {
     private $createTs;
     /** @var IReceiverList|ArrayList */
     private $receiverList;
+
+    public function __construct() {
+        $this->receiverList = new ReceiverList();
+    }
 
     public function getId(): int {
         return $this->id;
