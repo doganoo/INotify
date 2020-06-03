@@ -26,11 +26,13 @@ declare(strict_types=1);
 
 namespace doganoo\INotify\Notification\Type;
 
+use Traversable;
+
 /**
  * Interface ITypeList
  *
  * @package doganoo\INotify\Notification\Type
  */
-interface ITypeList {
+interface ITypeList extends Traversable {
 
 }

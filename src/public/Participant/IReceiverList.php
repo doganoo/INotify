@@ -26,12 +26,14 @@ declare(strict_types=1);
 
 namespace doganoo\INotify\Participant;
 
+use Traversable;
+
 /**
  * Interface IReceiverList
  *
  * @package doganoo\INotify\Participant
  */
-interface IReceiverList {
+interface IReceiverList extends Traversable {
 
     /**
      * @param IReceiver $receiver

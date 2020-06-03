@@ -26,11 +26,13 @@ declare(strict_types=1);
 
 namespace doganoo\INotify\Queue;
 
+use Traversable;
+
 /**
  * Interface IQueueList
  *
  * @package doganoo\INotify\Queue
  */
-interface IQueue {
+interface IQueue extends Traversable {
 
 }
