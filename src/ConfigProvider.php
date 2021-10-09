@@ -28,16 +28,14 @@ final class ConfigProvider {
     public function __invoke(): array {
         return [
             'dependencies' => [
-                [
-                    'factories' => [
-                        // Handler
-                        QueueHandler::class => QueueHandlerFactory::class,
+                'factories' => [
+                    // Handler
+                    QueueHandler::class => QueueHandlerFactory::class,
 
-                        // Service
-                        LogService::class   => LogServiceFactory::class,
-                        MailService::class  => MailServiceFactory::class,
-                        QueueService::class => QueueServiceFactory::class,
-                    ]
+                    // Service
+                    LogService::class   => LogServiceFactory::class,
+                    MailService::class  => MailServiceFactory::class,
+                    QueueService::class => QueueServiceFactory::class,
                 ]
             ]
         ];
