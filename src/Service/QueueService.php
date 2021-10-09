@@ -19,6 +19,7 @@ class QueueService {
         string            $altBody,
         Sender            $sender,
         DateTimeInterface $scheduleTs,
+        DateTimeInterface $createTs,
         string            $subject,
         array             $replyTo,
         array             $receiver,
@@ -60,6 +61,7 @@ class QueueService {
         $item->setBody($body);
         $item->setAltBody($altBody);
         $item->setSubject($subject);
+        $item->setCreateTs($createTs);
 
         return $item;
     }
