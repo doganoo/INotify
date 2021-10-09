@@ -15,6 +15,7 @@ use doganoo\INotify\Service\QueueService;
 final class ConfigProvider {
 
     public const MAILER_EXCEPTIONS_ENABLED = 'enabled.exceptions.mailer.inotify';
+    public const MAILER_CONFIG             = 'config.mailer.inotify';
     public const MAILER_DEBUG_MODE         = 'mode.debug.mailer.inotify';
     public const MAILER_SMTP_MODE          = 'mode.smtp.mailer.inotify';
     public const MAILER_SMTP_HOST          = 'host.smtp.mailer.inotify';

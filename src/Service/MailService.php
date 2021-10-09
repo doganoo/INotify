@@ -28,18 +28,20 @@ class MailService {
 
     public function sendEmail(Item $item): Item {
 
-        $mail            = new PHPMailer((bool) $this->config->get(ConfigProvider::MAILER_EXCEPTIONS_ENABLED));
-        $mail->SMTPDebug = $this->config->get(ConfigProvider::MAILER_DEBUG_MODE) ? SMTP::DEBUG_SERVER : SMTP::DEBUG_OFF;
+        /** @var Config $mailerConfig */
+        $mailerConfig    = $this->config->get(ConfigProvider::MAILER_CONFIG);
+        $mail            = new PHPMailer((bool) $mailerConfig->get(ConfigProvider::MAILER_EXCEPTIONS_ENABLED));
+        $mail->SMTPDebug = $mailerConfig->get(ConfigProvider::MAILER_DEBUG_MODE) ? SMTP::DEBUG_SERVER : SMTP::DEBUG_OFF;
 
         $mail->Debugoutput = $this->logger;
-        if ($this->config->get(ConfigProvider::MAILER_SMTP_MODE)) {
+        if ($mailerConfig->get(ConfigProvider::MAILER_SMTP_MODE)) {
             $mail->isSMTP();
             $mail->SMTPAuth   = true;
             $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
-            $mail->Host       = (string) $this->config->get(ConfigProvider::MAILER_SMTP_HOST);
-            $mail->Username   = (string) $this->config->get(ConfigProvider::MAILER_SMTP_USERNAME);
-            $mail->Password   = (string) $this->config->get(ConfigProvider::MAILER_SMTP_PASSWORD);
-            $mail->Port       = (int) $this->config->get(ConfigProvider::MAILER_SMTP_PORT);
+            $mail->Host       = (string) $mailerConfig->get(ConfigProvider::MAILER_SMTP_HOST);
+            $mail->Username   = (string) $mailerConfig->get(ConfigProvider::MAILER_SMTP_USERNAME);
+            $mail->Password   = (string) $mailerConfig->get(ConfigProvider::MAILER_SMTP_PASSWORD);
+            $mail->Port       = (int) $mailerConfig->get(ConfigProvider::MAILER_SMTP_PORT);
         }
 
         $mail->setFrom(
@@ -87,13 +89,13 @@ class MailService {
             );
         }
 
-        $mail->isHTML((bool) $this->config->get(ConfigProvider::MAILER_HTML_MODE));
+        $mail->isHTML((bool) $mailerConfig->get(ConfigProvider::MAILER_HTML_MODE));
         $mail->Subject = $item->getSubject();
         $mail->Body    = $item->getBody();
         $mail->AltBody = $item->getAltBody();
 
         $logMessage = 'email sending not enabled';
-        if ($this->config->get(ConfigProvider::MAILER_SENDING_ENABLED)) {
+        if ($mailerConfig->get(ConfigProvider::MAILER_SENDING_ENABLED)) {
             $sent       = $mail->send();
             $logMessage = 'email sent: ' . (true === $sent) ? 'true' : 'false';
         }
