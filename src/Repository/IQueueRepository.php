@@ -14,4 +14,6 @@ interface IQueueRepository {
 
     public function storeAll(ArrayList $queue): ArrayList;
 
+    public function remove(Item $item): Item;
+
 }

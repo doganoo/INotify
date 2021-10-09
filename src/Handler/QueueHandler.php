@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 namespace doganoo\INotify\Handler;
 
+use DateTime;
 use doganoo\INotify\Entity\Queue\Item;
 use doganoo\INotify\Repository\IQueueRepository;
 use doganoo\INotify\Service\LogService;
@@ -29,9 +30,15 @@ class QueueHandler {
 
         /** @var Item $item */
         foreach ($queueList as $item) {
+
+            if ($item->getScheduleTs() > (new DateTime())) {
+                continue;
+            }
+
             $item = $this->mailService->sendEmail($item);
             $log  = $this->logService->toLog($item);
             $this->logService->logItem($log);
+            $this->queueRepository->remove($item);
         }
 
     }

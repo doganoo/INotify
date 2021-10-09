@@ -31,31 +31,31 @@ class QueueService {
         $item = new Item();
         $item->setSender($sender);
 
-        foreach ($replyTo as $address => $name) {
-            $item->addReplyTo(new ReplyTo($address, $name));
+        foreach ($replyTo as $data) {
+            $item->addReplyTo(new ReplyTo($data['address'], $data['name']));
         }
 
-        foreach ($receiver as $address => $name) {
-            $item->addReceiver(new Receiver($address, $name));
+        foreach ($receiver as $data) {
+            $item->addReceiver(new Receiver($data['address'], $data['name']));
         }
 
-        foreach ($cc as $address => $name) {
-            $item->addCarbonCopy(new Receiver($address, $name));
+        foreach ($cc as $data) {
+            $item->addCarbonCopy(new Receiver($data['address'], $data['name']));
         }
 
-        foreach ($bcc as $address => $name) {
-            $item->addBlindCarbonCopy(new Receiver($address, $name));
+        foreach ($bcc as $data) {
+            $item->addBlindCarbonCopy(new Receiver($data['address'], $data['name']));
         }
 
-        foreach ($attachment as $path => $name) {
-            $item->addAttachment(new Attachment($path, $name));
+        foreach ($attachment as $data) {
+            $item->addAttachment(new Attachment($data['path'], $data['name']));
         }
 
         $item->setCreateTs(new DateTime());
         $item->setScheduleTs($scheduleTs);
 
-        foreach ($headers as $name => $value) {
-            $item->addHeader(new Header($name, $value));
+        foreach ($headers as $data) {
+            $item->addHeader(new Header($data['name'], $data['value']));
         }
 
         $item->setBody($body);
