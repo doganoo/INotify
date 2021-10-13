@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1b62b910ebe1ba4c0ac0e894a396624b",
+    "content-hash": "9f620da742110d86c34a554af6f82b99",
     "packages": [
         {
             "name": "container-interop/container-interop",
@@ -44,7 +44,7 @@
         },
         {
             "name": "doganoo/di-services",
-            "version": "dev-master",
+            "version": "0.0.16",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doganoo/DIServices.git",
@@ -68,7 +68,6 @@
                 "ergebnis/composer-normalize": "^2.15",
                 "phpunit/phpunit": "^7.5"
             },
-            "default-branch": true,
             "type": "library",
             "autoload": {
                 "psr-4": {
@@ -90,7 +89,7 @@
             "description": "service classes in the sense of Dependency Injection",
             "support": {
                 "issues": "https://github.com/doganoo/DIServices/issues",
-                "source": "https://github.com/doganoo/DIServices/tree/master"
+                "source": "https://github.com/doganoo/DIServices/tree/0.0.16"
             },
             "time": "2021-10-10T20:29:11+00:00"
         },
@@ -3096,9 +3095,7 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "doganoo/di-services": 20
-    },
+    "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
