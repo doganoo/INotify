@@ -3,6 +3,8 @@ declare(strict_types=1);
 
 namespace doganoo\INotify;
 
+use doganoo\DI\Email\IEmailService;
+use doganoo\DIP\Email\EmailService;
 use doganoo\INotify\Factory\Handler\QueueHandlerFactory;
 use doganoo\INotify\Factory\Service\LogServiceFactory;
 use doganoo\INotify\Factory\Service\MailServiceFactory;
@@ -28,7 +30,7 @@ final class ConfigProvider {
     public function __invoke(): array {
         return [
             'dependencies' => [
-                'factories' => [
+                'factories'  => [
                     // Handler
                     QueueHandler::class => QueueHandlerFactory::class,
 
@@ -36,8 +38,15 @@ final class ConfigProvider {
                     LogService::class   => LogServiceFactory::class,
                     MailService::class  => MailServiceFactory::class,
                     QueueService::class => QueueServiceFactory::class,
+                ],
+                'invokables' => [
+                    EmailService::class
+                ],
+                'aliases'    => [
+                    IEmailService::class => EmailService::class
                 ]
-            ]
+            ],
+            'headers'      => require_once __DIR__ . '/../config/mail/headers.php'
         ];
     }
 
