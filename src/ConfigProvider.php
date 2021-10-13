@@ -4,7 +4,9 @@ declare(strict_types=1);
 namespace doganoo\INotify;
 
 use doganoo\DI\Email\IEmailService;
+use doganoo\DI\HTML\IPurifierService;
 use doganoo\DIP\Email\EmailService;
+use doganoo\DIP\HTML\PurifierService;
 use doganoo\INotify\Factory\Handler\QueueHandlerFactory;
 use doganoo\INotify\Factory\Service\LogServiceFactory;
 use doganoo\INotify\Factory\Service\MailServiceFactory;
@@ -40,10 +42,12 @@ final class ConfigProvider {
                     QueueService::class => QueueServiceFactory::class,
                 ],
                 'invokables' => [
-                    EmailService::class
+                    EmailService::class,
+                    PurifierService::class,
                 ],
                 'aliases'    => [
-                    IEmailService::class => EmailService::class
+                    IEmailService::class => EmailService::class,
+                    IPurifierService::class => PurifierService::class,
                 ]
             ],
             'headers'      => require_once __DIR__ . '/../config/mail/headers.php'
