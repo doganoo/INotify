@@ -10,16 +10,19 @@
     }
   ],
   "require": {
-    "php": ">=7.4",
+    "php": ">=7.4 || >=8.1",
     "ext-json": "*",
     "doganoo/di-services": "^0",
-    "doganoo/php-algorithms": "^1",
+    "doganoo/php-algorithms": "^2",
     "doganoo/php-util": "^0",
     "ezyang/htmlpurifier": "^4.13",
     "laminas/laminas-config": "^3.7",
     "laminas/laminas-servicemanager": "^3.10",
     "phpmailer/phpmailer": "^6",
     "psr/log": "^1.1"
+  },
+  "conflict": {
+    "stevebauman/unfinalize": "*"
   },
   "require-dev": {
     "ergebnis/composer-normalize": "^2.15",
@@ -33,5 +36,10 @@
   "minimum-stability": "stable",
   "scripts": {
     "test": "./vendor/bin/phpunit -c . test"
+  },
+  "config": {
+    "allow-plugins": {
+      "ergebnis/composer-normalize": true
+    }
   }
 }
